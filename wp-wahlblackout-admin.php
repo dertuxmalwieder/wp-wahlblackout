@@ -1,6 +1,6 @@
 <?php
 /*
-WP-WahlBlackout ACP, version 20191001
+WP-WahlBlackout ACP, version 20210105
 Made with love.
 */
 

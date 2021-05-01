@@ -1,21 +1,15 @@
 <!doctype html>
+<?php
+if (!function_exists("get_option")) {
+    require_once(rtrim($_SERVER['DOCUMENT_ROOT'], '/') . "/wp-load.php");
+}
+?>
 <html>
 <head>
 <title>Heute ist <?php echo get_option('wahlblackout_wahltyp'); ?>!</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
-<!--
-BODY {background-color: #000000; width: 800px; text-align: center; }
-H1 {color: #00FF18; font-family: monospace; }
-H2 {color: #00FF18; font-family: monospace; }
-P {color: #FFFFFF; font-family: monospace; font-size: 14px; }
-.fusszeile {font-size: 11px; font-family: sans-serif; color: #606060; }
-.uhrzeit {color: #FF0000; font-weight: bold; }
-A:link, A:visited {color: #D3D3D3; text-decoration: underline; }
-A:hover {color: #FFA500; }
-.fusszeile A:link, .fusszeile A:visited {color: #777373; text-decoration: underline; }
-//-->
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1,0" />
+<link rel="stylesheet" href="blackout.css" />
 </head>
 <body>
 <h1>Lest Stimmzettel, keine Blogs!</h1>

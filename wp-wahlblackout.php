@@ -3,10 +3,10 @@
 Plugin Name: WP-WahlBlackout
 Plugin URI: https://tuxproject.de/projects/wp-wahlblackout
 Description: Schaltet das Blog am Tag der nächsten Wahl von 8 bis 18 Uhr ab; ein Widget mit dem Countdown (in Tagen) ist enthalten.
-Version: 20191001
+Version: 20210105
 Author: tux.
 Author URI: https://tuxproject.de/blog
-License: WTFPL
+License: MIT-0
 
 Yep, versioning scheme is yyyymm##, no reference to a day.
 Counting builds makes more sense to me.
@@ -122,18 +122,23 @@ add_filter((version_compare($wp_version, '2.8alpha', '>') ? 'plugin_row_meta' : 
 // ------------------------
 // Caching help:
 function wp_wahlblackout_clearcache() {
+    ob_start();
+
     // Super Cache Plugin
     if ( function_exists( 'wp_cache_clear_cache' ) ) {
+        ob_end_clean();
         wp_cache_clear_cache();
     }
 
     // Hyper Cache Plugin
     if ( function_exists( 'hyper_clean' ) ) {
+        ob_end_clean();
         hyper_clean();
     }
 
     // W3 Total Cache Plugin
     if ( function_exists( 'w3tc_pgcache_flush' ) ) {
+        ob_end_clean();
         w3tc_pgcache_flush();
     }
 }
